@@ -44,7 +44,7 @@ public abstract class NetWorker {
                 break;
             case PUSH_CELL:
                 gameModel.pushCell(message.getJ(), message.getI(), false);
-                //если кто-то победил
+                
                 if (!gameModel.isInGame()) {
                     gameModel.setWinI(message.getI());
                     gameModel.setWinJ(message.getJ());

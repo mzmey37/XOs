@@ -45,7 +45,7 @@ public class MainPage {
         gameIsGoing = true;
         waitConsent = false;
         waitOffer = false;
-        HostPage.paramsSet = true;//чтобы остановить процесс обновления HostPage
+        HostPage.paramsSet = true;
         this.width = width;
         this.height = height;
         createMainPanel(p1Name, p2Name, order, cells);
