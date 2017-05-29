@@ -259,8 +259,7 @@ public class HostPage {
                 Integer indEnd = allText.indexOf("</a>", indStart);
 
                 String ipAddress = new String(allText.substring(indStart + 8, indEnd));
-                if (ipAddress.split("\\.").length == 4) { // минимальная (неполная)
-                    //проверка что выбранный текст является ip адресом.
+                if (ipAddress.split("\\.").length == 4) { 
                     result = ipAddress;
                 }
             } catch (MalformedURLException ex) {
