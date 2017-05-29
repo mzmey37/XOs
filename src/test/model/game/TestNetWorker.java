@@ -10,9 +10,8 @@ public class TestNetWorker extends Assert implements Runnable {
 
     private static final String LOCALHOST = "localhost";
     private volatile boolean runServer = true;
-    private ClientNetWorker client = new ClientNetWorker(new GameModel());
-    private ServerNetWorker server = new ServerNetWorker(new GameModel());
-
+    private ClientNetWorker client = new ClientNetWorker(new GameModel(), 6000);
+    private ServerNetWorker server = new ServerNetWorker(new GameModel(), 6000);
     @Override
     public void run() {
         if (runServer) {
