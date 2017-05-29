@@ -279,18 +279,18 @@ public class GameModel {
         return this.savedResults;
     }
 
-    public void connect(String name, String ip) {
+    public void connect(String name, String ip, int port) {
         p2Name = null;
         if (name.length() > 0 && !name.contains("~")) {
             setP1Name(name);
-            runClient(ip);
+            runClient(ip, port);
         } else {
             netWorker = null;
         }
     }
 
-    private void runClient(String ip) {
-        ClientNetWorker client = new ClientNetWorker(this);
+    private void runClient(String ip, int port) {
+        ClientNetWorker client = new ClientNetWorker(this, port);
         client.connectTo(ip);
         client.waitSignal();
         if (client.hasConnection()) {
@@ -304,11 +304,11 @@ public class GameModel {
         return netWorker != null && netWorker.hasConnection();
     }
 
-    public void hostGame(String name) {
+    public void hostGame(String name, int port) {
         p2Name = null;
         if (name.length() > 0 && !name.contains("~")) {
             setP1Name(name);
-            runServer();
+            runServer(port);
         }
         else {
             state = INITIAL;
@@ -316,8 +316,8 @@ public class GameModel {
         }
     }
 
-    private void runServer() {
-        ServerNetWorker server = new ServerNetWorker(this);
+    private void runServer(int port) {
+        ServerNetWorker server = new ServerNetWorker(this, port);
         server.host();
         server.waitSignal();
         if (server.hosted()) {

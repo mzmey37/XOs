@@ -19,8 +19,8 @@ public class GameController {
         view.showInitPage();
     }
 
-    public void onHostGameClick(String name1) {
-        model.hostGame(name1);
+    public void onHostGameClick(String name1, int port) {
+        model.hostGame(name1, port);
         if (model.getState() == GameModel.CHOOSING_PARAMS) {
             view.showHostPage(name1);
         }
@@ -29,8 +29,8 @@ public class GameController {
         }
     }
 
-    public void onConnectClick(String name, String ip) {
-        model.connect(name, ip);
+    public void onConnectClick(String name, String ip, int port) {
+        model.connect(name, ip, port);
         if (model.isConnected()) {
             view.showClientPage(name, model.getP2Name());
         }

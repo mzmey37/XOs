@@ -7,13 +7,13 @@ import java.net.Socket;
 
 public class ClientNetWorker extends NetWorker{
 
-    public ClientNetWorker(GameModel gm) {
-        super(gm);
+    public ClientNetWorker(GameModel gm, int port) {
+        super(gm, port);
     }
 
     public void connectTo(String host) {
         try {
-            cSocket = new Socket(host, PORT);
+            cSocket = new Socket(host, port);
             prepareStreams();
             new Thread(this::runMessagingProcess).start();
             sendSignal();

@@ -24,6 +24,7 @@ public class LogInPage {
     private Label lBottomEmpty;
     private TextField tfYourName;
     private TextField tfIp;
+    private TextField tfPort;
     private Button bConnect;
     private Button bShowRecords;
     private Button bHostGame;
@@ -50,6 +51,7 @@ public class LogInPage {
         lBottomEmpty = new Label();
         tfYourName = new TextField(10);
         tfIp = new TextField(30);
+        tfPort = new TextField(30);
         bConnect = new Button("Connect to opponent");
         bShowRecords = new Button("Show records");
         bHostGame = new Button("Host game");
@@ -98,11 +100,18 @@ public class LogInPage {
         pLogIn.add(lIp, gbc);
 
         gbc.fill = GridBagConstraints.BOTH;
-        gbc.gridwidth = 2;
+        gbc.gridwidth = 1;
         gbc.weighty = 0.1;
         gbc.gridx = 0;
         gbc.gridy = 5;
         pLogIn.add(tfIp, gbc);
+
+        gbc.fill = GridBagConstraints.BOTH;
+        gbc.gridwidth = 1;
+        gbc.weighty = 0.1;
+        gbc.gridx = 1;
+        gbc.gridy = 5;
+        pLogIn.add(tfPort, gbc);
 
         gbc.fill = GridBagConstraints.NONE;
         gbc.gridwidth = 2;
@@ -151,8 +160,10 @@ public class LogInPage {
 
         tfIp.setFont(FT_USUAL_FIELD);
         tfIp.addActionListener(e -> {
-            mainView.onConnectClick(tfYourName.getText(), tfIp.getText());
+            mainView.onConnectClick(tfYourName.getText(), tfIp.getText(), Integer.valueOf(tfPort.getText()));
         });
+
+        tfPort.setFont(FT_USUAL_FIELD);
 
         lTopEmpty.setBackground(C_MAIN_BACK);
 
@@ -162,14 +173,14 @@ public class LogInPage {
         bConnect.setFont(FT_USUAL_LABEL);
         bConnect.setForeground(Color.white);
         bConnect.addActionListener(e -> {
-            mainView.onConnectClick(tfYourName.getText(), tfIp.getText());
+            mainView.onConnectClick(tfYourName.getText(), tfIp.getText(), Integer.valueOf(tfPort.getText()));
         });
 
         bHostGame.setBackground(C_APP);
         bHostGame.setFont(FT_USUAL_LABEL);
         bHostGame.setForeground(Color.white);
         bHostGame.addActionListener(e -> {
-            mainView.onHostGameClick(tfYourName.getText());
+            mainView.onHostGameClick(tfYourName.getText(), Integer.valueOf(tfPort.getText()));
         });
 
         bShowRecords.setBackground(C_APP);

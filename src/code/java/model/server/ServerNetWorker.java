@@ -21,13 +21,13 @@ public class ServerNetWorker extends NetWorker {
         }
     }
 
-    public ServerNetWorker(GameModel gm) {
-        super(gm);
+    public ServerNetWorker(GameModel gm, int port) {
+        super(gm, port);
     }
 
     public void host() {
         try {
-            sSocket = new ServerSocket(PORT);
+            sSocket = new ServerSocket(port);
             hosted = true;
             sendSignal();
         } catch (IOException e) {

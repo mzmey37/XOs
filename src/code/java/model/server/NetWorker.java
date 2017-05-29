@@ -24,8 +24,11 @@ public abstract class NetWorker {
     Socket cSocket;
     private DataInputStream dis = null;
     private DataOutputStream dos = null;
-    NetWorker(GameModel gm) {
+    protected int port;
+
+    NetWorker(GameModel gm, int port) {
         gameModel = gm;
+        this.port = port;
     }
 
     void runMessagingProcess() {
@@ -44,7 +47,7 @@ public abstract class NetWorker {
                 break;
             case PUSH_CELL:
                 gameModel.pushCell(message.getJ(), message.getI(), false);
-                
+                //если кто-то победил
                 if (!gameModel.isInGame()) {
                     gameModel.setWinI(message.getI());
                     gameModel.setWinJ(message.getJ());

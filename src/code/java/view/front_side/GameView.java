@@ -138,12 +138,12 @@ public class GameView {
         new ClosingDialog(getMainFrame(), controller).setVisible(true);
     }
 
-    void onHostGameClick(String name) {
-        controller.onHostGameClick(name);
+    void onHostGameClick(String name, int port) {
+        controller.onHostGameClick(name, port);
     }
 
-    void onConnectClick(String name, String ip) {
-        controller.onConnectClick(name, ip);
+    void onConnectClick(String name, String ip, int port) {
+        controller.onConnectClick(name, ip, port);
     }
 
     void onHostStartGameClick(String width, String height, String winLen) {
