@@ -85,7 +85,7 @@ public class LogInPage {
         pLogIn.add(lYourName, gbc);
 
         gbc.fill = GridBagConstraints.BOTH;
-        gbc.gridwidth = 1;
+        gbc.gridwidth = 2;
         gbc.weighty = 0.1;
         gbc.gridx = 0;
         gbc.gridy = 3;
